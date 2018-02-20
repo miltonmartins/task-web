@@ -1,0 +1,37 @@
+<mat-list class="flex-item">
+  <div fxFlex="50%">
+    <h3 mat-subheader style="font-weight: bold;">To Do</h3>
+    <div *ngFor="let task of tasks">
+      <mat-list-item *ngIf="task.status == 'false'">
+        <mat-icon mat-list-icon>radio_button_unchecked</mat-icon>
+        <h4 mat-line style="font-weight: bold;">{{task.description}}</h4>
+        <p mat-line> {{task.dueDate}} </p>
+        <p mat-line> {{task.priority}} </p>
+        <button mat-icon-button class="example-spacer" (click)="updateTask(task)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="example-spacer" (click)="deleteTask(task.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </div>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div fxFlex="50%">
+    <h3 mat-subheader style="font-weight: bold;">Done</h3>
+    <div *ngFor="let task of tasks">
+      <mat-list-item *ngIf="task.status == 'true'">
+        <mat-icon mat-list-icon>check_circle</mat-icon>
+        <h4 mat-line style="font-weight: bold;">{{task.description}}</h4>
+        <p mat-line> {{task.dueDate}} </p>
+        <p mat-line> {{task.priority}} </p>
+        <button mat-icon-button class="example-spacer" (click)="updateTask(task)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="example-spacer" (click)="deleteTask(task.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </div>
+  </div>
+</mat-list>
